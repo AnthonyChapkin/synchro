@@ -17,7 +17,7 @@ function App() {
         >
           Log In
         </Button>
-        <Paragraph />
+        <Paragraph>OR</Paragraph>
         <Button
           onClick={() => {
             console.log("Go to Sign Up Page");
