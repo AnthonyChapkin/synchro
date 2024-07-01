@@ -10,9 +10,21 @@ function App() {
         <Header headerNum={1}>Syncro</Header>
         <Header headerNum={2}>Username</Header>
         <Header headerNum={2}>Password</Header>
-        <Button />
+        <Button
+          onClick={() => {
+            console.log("Sign In");
+          }}
+        >
+          Log In
+        </Button>
         <Paragraph />
-        <Button />
+        <Button
+          onClick={() => {
+            console.log("Go to Sign Up Page");
+          }}
+        >
+          Go to Sign Up Page
+        </Button>
       </div>
     </>
   );
