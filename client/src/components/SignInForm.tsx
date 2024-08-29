@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function SignInForm() {
   return (
     <form className="sign-in-form">
@@ -20,7 +22,12 @@ function SignInForm() {
       ></input>
       <input type="button" className="sign-in-button" value="Sign In" />
       <label className="or-label">OR</label>
-      <input type="button" className="go-to-sign-up-button" value="Go to Sign Up Page"></input>
+      <input
+        type="button"
+        className="go-to-sign-up-button"
+        value="Go to Sign Up Page"
+      ></input>
+      <Link to="/sign-up">Go to Sign Up Page</Link>
     </form>
   );
 }

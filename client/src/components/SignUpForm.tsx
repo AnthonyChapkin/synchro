@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function SignUpForm() {
   return (
     <form className="sign-up-form">
@@ -25,6 +27,7 @@ function SignUpForm() {
         className="go-to-sign-in-button"
         value="Go to Sign In Page"
       ></input>
+      <Link to="/">Go to Sign In Page</Link>
     </form>
   );
 }
