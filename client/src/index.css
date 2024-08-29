@@ -41,7 +41,8 @@ h1 {
     color: white;
     background-color: green;
     border-radius: 8px;
-    border: none;
+    border: solid;
+    border-width: 0px;
 }
 
 .go-to-sign-up-button, .go-to-sign-in-button {
@@ -51,5 +52,11 @@ h1 {
     color: white;
     background-color: green;
     border-radius: 8px;
-    border: none;
+    border: solid;
+    border-width: 0px;
+}
+
+.sign-in-button.hovered, .sign-up-button.hovered,
+ .go-to-sign-up-button.hovered, .go-to-sign-in-button.hovered {
+    border-width: 2px;
 }
