@@ -3,7 +3,6 @@ import { useState } from "react";
 
 function SignInForm() {
   const [signInButtonHovered, setSignInButtonHovered] = useState(false);
-  const [goToSignUpbuttonHovered, setGoToSignUpbuttonHovered] = useState(false);
 
   return (
     <form className="sign-in-form">
@@ -38,7 +37,7 @@ function SignInForm() {
           setSignInButtonHovered(false);
         }}
       />
-      <label className="or-label">OR</label>
+      <label className="or-label">OR</label> 
       <Link to="/sign-up">Go to Sign Up Page</Link>
     </form>
   );

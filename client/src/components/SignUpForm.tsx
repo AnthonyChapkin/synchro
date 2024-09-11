@@ -3,7 +3,6 @@ import { useState } from "react";
 
 function SignUpForm() {
   const [signUpButtonHovered, setSignUpButtonHovered] = useState(false);
-  const [goToSignInbuttonHovered, setGoToSignInbuttonHovered] = useState(false);
 
   return (
     <form className="sign-up-form">
