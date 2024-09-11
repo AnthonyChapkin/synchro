@@ -1,62 +1,57 @@
 h1 {
-    text-align: center;
-    font-size: 40px;
-    color: green;
+  text-align: center;
+  font-size: 40px;
+  color: green;
 }
 
-.sign-in-form, .sign-up-form {
-    margin-top: 150px;
+.sign-in-form,
+.sign-up-form {
+  margin-top: 150px;
 }
 
-.sign-in-form *, .sign-up-form * {
-    display: block;
-    margin: auto;
-    text-align: center;
+.sign-in-form *,
+.sign-up-form * {
+  display: block;
+  margin: auto;
+  text-align: center;
 }
 
-.sign-in-form-label, .sign-up-form-label  {
-    display: block;
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: green;
+.sign-in-form-label,
+.sign-up-form-label {
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: green;
 }
 
-.sign-in-header, .sign-up-header {
-    text-align: center;
-    margin-top: 130px;
-    font-size: 30px;
+.sign-in-header,
+.sign-up-header {
+  text-align: center;
+  margin-top: 130px;
+  font-size: 30px;
 }
 
-.sign-in-text-field, .sign-up-text-field {
-    margin-bottom: 20px;
-    width: 20%;
-    height: 20px;
+.sign-in-text-field,
+.sign-up-text-field {
+  margin-bottom: 20px;
+  width: 20%;
+  height: 20px;
 }
 
-.sign-in-button, .sign-up-button {
-    margin-bottom: 10px;
-    width: 200px;
-    height: 40px;
-    color: white;
-    background-color: green;
-    border-radius: 8px;
-    border: solid;
-    border-width: 0px;
+.sign-in-button,
+.sign-up-button {
+  margin-bottom: 10px;
+  width: 200px;
+  height: 40px;
+  color: white;
+  background-color: green;
+  border-radius: 8px;
+  border: solid;
+  border-width: 0px;
 }
 
-.go-to-sign-up-button, .go-to-sign-in-button {
-    margin-top: 10px;
-    width: 200px;
-    height: 40px;
-    color: white;
-    background-color: green;
-    border-radius: 8px;
-    border: solid;
-    border-width: 0px;
-}
-
-.sign-in-button.hovered, .sign-up-button.hovered,
- .go-to-sign-up-button.hovered, .go-to-sign-in-button.hovered {
-    border-width: 2px;
+.sign-in-button.hovered,
+.sign-up-button.hovered {
+  border-width: 2px;
 }

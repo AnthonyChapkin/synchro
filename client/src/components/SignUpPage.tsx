@@ -1,5 +1,4 @@
 import Header from "./Header";
-import Paragraph from "./Paragraph";
 import SignUpForm from "./SignUpForm";
 
 function SignUpPage() {

@@ -5,10 +5,9 @@ import SignUpPage from "./components/SignUpPage";
 import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
-
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/sign-in",
       element: <SignInPage />,
       errorElement: <NotFoundPage />,
     },

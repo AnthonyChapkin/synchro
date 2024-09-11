@@ -39,22 +39,6 @@ function SignInForm() {
         }}
       />
       <label className="or-label">OR</label>
-      <input
-        type="button"
-        className={
-          goToSignUpbuttonHovered
-            ? "go-to-sign-up-button hovered"
-            : "go-to-sign-up-button"
-        }
-        value="Go to Sign Up Page"
-        onClick={() => console.log("Went to Sign Up")}
-        onMouseOver={() => {
-          setGoToSignUpbuttonHovered(true);
-        }}
-        onMouseOut={() => {
-          setGoToSignUpbuttonHovered(false);
-        }}
-      ></input>
       <Link to="/sign-up">Go to Sign Up Page</Link>
     </form>
   );
