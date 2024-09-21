@@ -5,7 +5,12 @@ function SignInForm() {
   const [signInButtonHovered, setSignInButtonHovered] = useState(false);
 
   return (
-    <form className="sign-in-form">
+    <form
+      className="sign-in-form"
+      onSubmit={() => {
+        console.log("Submitted");
+      }}
+    >
       <label className="sign-in-form-label">Sign In</label>
       <label htmlFor="sign-in-username-field-id" className="username-label">
         Username
@@ -24,12 +29,11 @@ function SignInForm() {
         id="sign-in-password-field-id"
       ></input>
       <input
-        type="button"
+        type="submit"
         className={
           signInButtonHovered ? "sign-in-button hovered" : "sign-in-button"
         }
         value="Sign In"
-        onClick={() => console.log("Signed In")}
         onMouseOver={() => {
           setSignInButtonHovered(true);
         }}
@@ -37,7 +41,7 @@ function SignInForm() {
           setSignInButtonHovered(false);
         }}
       />
-      <label className="or-label">OR</label> 
+      <label className="or-label">OR</label>
       <Link to="/sign-up">Go to Sign Up Page</Link>
     </form>
   );
