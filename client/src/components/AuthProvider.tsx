@@ -1,16 +1,36 @@
-import { PropsWithChildren, createContext, useContext, useState } from "react";
-import User from "../types/User";
+import axios from "axios";
+import {
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
-const AuthContext = createContext<User | null>(null);
+const AuthContext = createContext<boolean>(false);
 
-type AuthProviderProps = PropsWithChildren & { isSignedIn?: boolean };
+type AuthProviderProps = PropsWithChildren;
 
-function AuthProvider({ children, isSignedIn }: AuthProviderProps) {
-  const [user] = useState<User | null>(
-    isSignedIn ? { name: "anton", password: "123" } : null
+function AuthProvider({ children }: AuthProviderProps) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const CheckAuth = async () => {
+      try {
+        const res = await axios.get("http://localhost:8080/api/check-auth");
+        setIsAuthenticated(res.status === 200);
+      } catch (error) {
+        setIsAuthenticated(false);
+      }
+    };
+    CheckAuth();
+  }, []);
+
+  return (
+    <AuthContext.Provider value={isAuthenticated}>
+      {children}
+    </AuthContext.Provider>
   );
-
-  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
 }
 
 export function useAuth() {

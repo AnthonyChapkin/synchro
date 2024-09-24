@@ -66,6 +66,19 @@ app.get("/api/user", (req, res) => {
   }
 });
 
+app.get("/api/check-auth", (req, res) => {
+  if (req.session.user) {
+    return res.status(200).json({
+      message: `User is authenticated`,
+      authenticated: true,
+    });
+  } else {
+    return res
+      .status(401)
+      .json({ message: "User is not authenticated", authenticated: false });
+  }
+});
+
 app.listen(8080, () => {
   console.log("Server started on port 8080");
 });

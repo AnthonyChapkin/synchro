@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useState } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
 
@@ -8,18 +8,18 @@ function ProtectedRoute({
   children,
   shouldBeAuthenticated,
 }: ProtectRouteProps) {
-  const user = useAuth();
+  const isAuthenticated = useAuth();
   const navigate = useNavigate();
   const redirect = shouldBeAuthenticated ? "/sign-in" : "/";
 
   useEffect(() => {
     if (
-      (user === null && shouldBeAuthenticated) ||
-      (user !== null && !shouldBeAuthenticated)
+      (!isAuthenticated && shouldBeAuthenticated) ||
+      (isAuthenticated && !shouldBeAuthenticated)
     ) {
       navigate(redirect, { replace: true });
     }
-  }, [user, navigate]);
+  }, [isAuthenticated, navigate]);
 
   return children;
 }
