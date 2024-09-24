@@ -13,6 +13,7 @@ type AuthProviderProps = PropsWithChildren;
 
 function AuthProvider({ children }: AuthProviderProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const CheckAuth = async () => {
@@ -21,10 +22,16 @@ function AuthProvider({ children }: AuthProviderProps) {
         setIsAuthenticated(res.status === 200);
       } catch (error) {
         setIsAuthenticated(false);
+      } finally {
+        setIsLoading(false);
       }
     };
     CheckAuth();
   }, []);
+
+  if (isLoading) {
+    return <>Loading...</>;
+  }
 
   return (
     <AuthContext.Provider value={isAuthenticated}>
