@@ -7,7 +7,10 @@ import {
   useState,
 } from "react";
 
-const AuthContext = createContext<boolean>(false);
+const AuthContext = createContext<{
+  isAuthenticated: boolean;
+  checkAuth: () => Promise<void>;
+}>({ isAuthenticated: false, checkAuth: async () => {} });
 
 type AuthProviderProps = PropsWithChildren;
 
@@ -15,18 +18,21 @@ function AuthProvider({ children }: AuthProviderProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const checkAuth = async () => {
+    try {
+      const res = await axios.get("http://localhost:8080/api/check-auth", {
+        withCredentials: true,
+      });
+      setIsAuthenticated(res.status === 200);
+    } catch (error) {
+      setIsAuthenticated(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const CheckAuth = async () => {
-      try {
-        const res = await axios.get("http://localhost:8080/api/check-auth");
-        setIsAuthenticated(res.status === 200);
-      } catch (error) {
-        setIsAuthenticated(false);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    CheckAuth();
+    checkAuth();
   }, []);
 
   if (isLoading) {
@@ -34,7 +40,7 @@ function AuthProvider({ children }: AuthProviderProps) {
   }
 
   return (
-    <AuthContext.Provider value={isAuthenticated}>
+    <AuthContext.Provider value={{ isAuthenticated, checkAuth }}>
       {children}
     </AuthContext.Provider>
   );

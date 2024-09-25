@@ -8,7 +8,7 @@ function ProtectedRoute({
   children,
   shouldBeAuthenticated,
 }: ProtectRouteProps) {
-  const isAuthenticated = useAuth();
+  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const redirect = shouldBeAuthenticated ? "/sign-in" : "/";
 
