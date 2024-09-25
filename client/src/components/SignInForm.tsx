@@ -7,6 +7,7 @@ function SignInForm() {
   const [signInButtonHovered, setSignInButtonHovered] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { checkAuth } = useAuth();
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -21,12 +22,15 @@ function SignInForm() {
         },
         { withCredentials: true }
       );
-      if (res.status === 200) {
+      if (200 >= res.status && res.status < 300) {
         checkAuth();
       }
-      console.log(res.data.message);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      if (error.response) {
+        setError(error.response.data.message);
+      } else {
+        setError("Failed to connect to the server.");
+      }
     }
   };
 
@@ -51,6 +55,7 @@ function SignInForm() {
         id="sign-in-password-field-id"
         onChange={(e) => setPassword(e.target.value)}
       ></input>
+      {error && <div>{error}</div>}
       <input
         type="submit"
         className={
